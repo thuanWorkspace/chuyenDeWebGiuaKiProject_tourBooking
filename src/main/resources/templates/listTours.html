@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>list tours</title>
+</head>
+<body>
+<table>
+		<thead>
+			<tr>
+				<th>Chương Trình</th>
+				<th>Lịch Khởi Hành</th>
+				<th>Giá</th>
+				<th>Đặt</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="tour : ${tours}">
+				<th>
+					<a th:href="@{/tourDetail(id=${tour.id})}" th:text="${tour.title}" ></a>
+					<label th:text = "${tour.days}"></label>
+				</th>
+				<th><p 
+					th:text="${tour.departureSchedule}"></p></th>
+				<th><a th:text="${#numbers.formatDecimal(tour.price,3,'POINT',0,'COMMA')}"></a></th>
+				<th>
+					<form th:action="@{/bookingTour}" method="get">
+						<input type="hidden" id="id" name="id" th:value="${tour.id}">
+						<input type="submit" value="đặt">
+					</form>
+				</th>
+			</tr>
+		</tbody>
+
+	</table>
+</body>
+</html>

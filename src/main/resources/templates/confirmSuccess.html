@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>confirm success</title>
+</head>
+<body>
+	chúc mừng bạn đã confirm success ! 
+	<span th:text="${customer.name}"></span> đã đặt thành công tour: <span th:text="${tour.title}"></span>
+	<form th:action="@{/listTours}" method="get">
+			<input type="submit" value="xem danh sách tours">
+		</form>
+</body>
+</html>

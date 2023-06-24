@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>booking tour</title>
+</head>
+<body>
+	đặt tour:
+	<h1 th:text="${tour.title}"></h1>
+	<form th:action="@{/bookingTour(id=${tour.id})}" method="post">
+		thông tin khách hàng: 
+		<div th:object="${customer}">
+		họ tên *: <input th:field="*{name}"> 
+		địa chỉ *: <input th:field="*{address}">
+		email *: <input th:field="*{email}">
+		điện thoại *: <input th:field="*{phone}">
+		 </div>
+		thông tin chuyến đi
+				<div th:object="${booking}">
+		
+		ngày khởi hành*: <input th:field="*{departureDate}">
+		số người lớn * : <input th:field="*{noAdults}" >
+		 </div>
+		<input type="submit" value="gởi">
+		
+	</form>
+	<form th:action="@{/listTours}" method="get">
+			<input type="submit" value="hủy">
+		</form>
+</body>
+</html>

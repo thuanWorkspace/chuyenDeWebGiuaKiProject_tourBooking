@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tour Detail</title>
+</head>
+<body>
+	<h1 th:text="${tour.title}"></h1>
+	số ngày: <span th:text="${tour.days}"></span>,Phương tiện: <span th:text="${tour.transportation}"> </span>, lịch khởi hành: <span th:text="${tour.departureSchedule}"></span>
+	<h2>Chương Trình chi tiết:</h2>
+	<p th:text = "${tour.description}">
+	<form th:action="@{/bookingTour}" method="get">
+						<input type="hidden" id="id" name="id" th:value="${tour.id}">
+						<input type="submit" value="đặt">
+					</form>
+	<a th:href="@{/listTours}"  >chương trình tour</a>
+</body>
+</html>
